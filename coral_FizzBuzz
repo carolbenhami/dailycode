@@ -1,5 +1,5 @@
 integer x
-x = RandomNumber(0,100)
+x = RandomNumber(1,101)
 
 
 if x % 3 == 0 and x % 5 == 0
