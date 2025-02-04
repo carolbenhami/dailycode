@@ -9,7 +9,7 @@ public class java_JavaQuickMaths{
         
         // 1. Loop from 1.0 to 5.0, incrementing by 0.5
         System.out.print("Looping from 1.0 to 5.0 with rounding methods: \n");
-        for(double i = 1.0; i != 5.0; i = i + 0.5){
+        for(double i = 1.0; i !<= 5.0; i = i + 0.5){
         //    - Print the number
         //    - Apply and print results of:
         //      - Math.ceil()
