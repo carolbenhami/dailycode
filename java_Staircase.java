@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Stairs{
+public class java_Staircase{
     public static void main(String [] args){
         Scanner scanner = new Scanner(System.in); //Initializes scanner
         System.out.print("This code takes user input and create a right-justified staircase with the amount of steps input by the user, as well as the symbol input by the user. \n\n");
