@@ -1,7 +1,7 @@
 // BEGIN
 import java.util.Scanner;
 
-public class GuessNumber{
+public class java_GuessNumber{
     public static void main(String [] args){
       // Choose a hidden number
       int randomNum = (int)(Math.random() * 101); // 0 to 100
