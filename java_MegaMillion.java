@@ -22,7 +22,7 @@ public class MegaMillions {
         initializeGame();
 
         // TODO: Run the game loop until the player can no longer play
-        while (balance >= 2 || exitFlag == false){
+        while (balance >= 2 && exitFlag == false){
             runGame();
         }
 
