@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.Arrays;
 
-public class Main {
+public class MegaMillion {
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
     static double balance;
@@ -26,6 +26,9 @@ public class Main {
             runGame();
         }
 
+        if (balance < 2){
+            System.out.println("You're broke! Can's play again, mb :(   ");
+        }
         printGameSummary();
     }
 
@@ -40,7 +43,7 @@ public class Main {
 
     // TODO: Run the game loop (handle multiple rounds of play)
     public static void runGame(){
-        System.out.print("Current Balance: $" + balance + "\n");
+        System.out.printf("Current Balance: $%.2f\n", balance);
         System.out.println("--------------------------------------");
         playRound();
 
@@ -79,11 +82,16 @@ public class Main {
             usermegaBall = getValidNumber(25);
             System.out.print("Your Picks: " + Arrays.toString(userArray) + "  Mega Ball: " + usermegaBall);
         }
-
-        System.out.print("Do you want to add Megaplier for $1?  (yes/no): ");
-        char addMegaplier = scanner.next().charAt(0);
-        while (addMegaplier != 'y' && addMegaplier != 'Y' && addMegaplier != 'n' && addMegaplier != 'N'){
+        char addMegaplier = 'A';
+        if(balance >= 3) {
+            System.out.print("Do you want to add Megaplier for $1?  (yes/no): ");
             addMegaplier = scanner.next().charAt(0);
+            while (addMegaplier != 'y' && addMegaplier != 'Y' && addMegaplier != 'n' && addMegaplier != 'N') {
+                addMegaplier = scanner.next().charAt(0);
+            }
+        }
+        else{
+            System.out.println("Not enough money for Megaplier.");
         }
 
         if (addMegaplier == 'y' || addMegaplier == 'Y'){
@@ -100,7 +108,7 @@ public class Main {
         draw = generateNumbers();
         Arrays.sort(draw);
         megaBall = random.nextInt(25)+1;
-        System.out.println("=======================================");
+        System.out.println("\n=======================================");
         System.out.println("            WINNING NUMBERS:           ");
         System.out.println("=======================================");
         System.out.print(Arrays.toString(draw) + " Mega Ball: " + megaBall + "\n");
@@ -116,8 +124,8 @@ public class Main {
             }
         }
 
-        System.out.println("You won: $" + winnings);
-        System.out.println("New Balance: $" + balance + "\n");
+        System.out.printf("You won: $%.2f\n" ,  winnings);
+        System.out.printf("New Balance: $%.2f\n\n" , balance);
 
         totalWinnings = totalWinnings + winnings;
         updateBalance();
@@ -147,9 +155,9 @@ public class Main {
         System.out.println("=======================================");
         System.out.println("            GAME OVER:           ");
         System.out.println("=======================================");
-        System.out.print("Total Spent: $" + totalSpent + "\n");
-        System.out.print("Total Winnings: $" + totalWinnings + "\n");
-        System.out.print("Final Balance: $" + balance + "\n");
+        System.out.printf("Total Spent: $%.2f\n" ,  totalSpent );
+        System.out.printf("Total Winnings: $%.2f\n" , totalWinnings);
+        System.out.printf("Final Balance: $%.2f\n" , balance);
         System.out.println("=======================================");
     }
 
