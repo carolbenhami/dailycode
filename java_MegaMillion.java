@@ -187,6 +187,7 @@ public class MegaMillions {
     }
 
     // TODO: Count matching numbers between user and winning numbers
+    //FIX DOESNT WORK
     public static int countMatches(){
         matches = 0;
         int count = 0;
