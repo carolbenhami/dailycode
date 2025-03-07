@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.Arrays;
 
-public class MegaMillion {
+public class Main {
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
     static double balance;
@@ -17,6 +17,7 @@ public class MegaMillion {
     static int megaplier;
     static double winnings;
     static int matches;
+    static boolean megaBallMatch = false;
 
     public static void main(String[] args) {
         initializeGame();
@@ -117,7 +118,10 @@ public class MegaMillion {
         }
         System.out.println("=======================================\n");
         matches = countMatches();
-        winnings = getPrize();
+        if(megaBall == usermegaBall){
+            megaBallMatch = true;
+        }
+        winnings = getPrize(matches, megaBallMatch);
         if (addMegaplier == 'y' || addMegaplier == 'Y'){
             if (winnings != 1000000){
                 winnings = winnings * megaplier;
@@ -205,33 +209,33 @@ public class MegaMillion {
     }
 
     // TODO: Determine the prize amount based on matches
-    public static double getPrize(){
+    public static double getPrize(int matchCount, boolean megaBallMatch){
         double prize = 0;
-        if(matches == 5  && usermegaBall == megaBall){
+        if(matchCount == 5  && megaBallMatch == true){
             prize = 100000000;
         }
-        else if (matches == 5  && usermegaBall != megaBall){
+        else if (matchCount == 5  && megaBallMatch == false){
             prize = 1000000;
         }
-        else if (matches == 4  && usermegaBall == megaBall){
+        else if (matchCount == 4  && megaBallMatch == true){
             prize = 10000;
         }
-        else if (matches == 4  && usermegaBall != megaBall){
+        else if (matchCount == 4  && megaBallMatch == false){
             prize = 500;
         }
-        else if (matches == 3  && usermegaBall == megaBall){
+        else if (matchCount == 3  && megaBallMatch == true){
             prize = 200;
         }
-        else if (matches == 3  && usermegaBall != megaBall){
+        else if (matchCount == 3  && megaBallMatch == false){
             prize = 10;
         }
-        else if (matches == 2  && usermegaBall == megaBall){
+        else if (matchCount == 2  && megaBallMatch == true){
             prize = 10;
         }
-        else if (matches == 1  && usermegaBall == megaBall){
+        else if (matchCount == 1  && megaBallMatch == true){
             prize = 4;
         }
-        else if (matches == 0  && usermegaBall == megaBall){
+        else if (matchCount == 0  && megaBallMatch == true){
             prize = 2;
         }
         else{
