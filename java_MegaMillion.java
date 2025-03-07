@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.Arrays;
 
-public class MegaMillions {
+public class Main {
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
     static double balance;
@@ -98,7 +98,7 @@ public class MegaMillions {
         ticketCost = 0;
 
         draw = generateNumbers();
-        Arrays.sort(userArray);
+        Arrays.sort(draw);
         megaBall = random.nextInt(25)+1;
         System.out.println("=======================================");
         System.out.println("            WINNING NUMBERS:           ");
@@ -188,16 +188,10 @@ public class MegaMillions {
 
     // TODO: Count matching numbers between user and winning numbers
     //FIX DOESNT WORK
-    public static int countMatches(){
-        matches = 0;
+    public static int countMatches() {
         int count = 0;
-        for(int i : draw){
-            for(int x : userArray){
-                if(i == x){
-                    count++;
-                    break;
-                }
-            }
+        for (int num : userArray) {
+            if (contains(draw, num)) count++;
         }
         return count;
     }
