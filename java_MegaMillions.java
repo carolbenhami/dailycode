@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.Arrays;
 
-public class java_MegaMillion {
+public class java_MegaMillions {
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
     static double balance;
