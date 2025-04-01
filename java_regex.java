@@ -52,7 +52,7 @@ public class WordExtractor {
         String input = "Python3Java2Go5Rust";
         
         // Write a regex to split the string at digits
-        String[] words = input.split(""); // YOUR REGEX HERE
+        String[] words = input.split("\\d"); // YOUR REGEX HERE
         
         // Expected output: ["Python", "Java", "Go", "Rust"]
         System.out.println("Extracted words:");
