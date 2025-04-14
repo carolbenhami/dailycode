@@ -69,7 +69,7 @@ public class Animal{
     // - Override speak() to print "<name> says: Woof!"
     @Override
     public void speak(){
-        System.out.println(name + "says: Woof!");
+        System.out.println(name + " says: Woof!");
     }
 
     //Equals override
