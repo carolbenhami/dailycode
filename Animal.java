@@ -30,7 +30,7 @@ public class Animal{
 
 // Subclass
 // TODO: Define a class called Mammal that extends Animal with:
-public class Mammal extends Animal{
+    class Mammal extends Animal{
     // - A protected boolean field called warmBlooded (set to true)
     protected boolean warmBlooded = true;
     // - A protected String field called dietType (e.g., "herbivore")
@@ -61,19 +61,19 @@ public class Mammal extends Animal{
 
 // Subclasses of Mammal
 // TODO: Define a class Dog that extends Mammal
-public class Dog extends Mammal{
-// - Constructor takes name and passes name, true, "omnivore", 4, "Woof!" to super
+    class Dog extends Mammal{
+    // - Constructor takes name and passes name, true, "omnivore", 4, "Woof!" to super
     public Dog (String name){
-    super(name, true, "omnivore", 4, "woof woof");
+        super(name, true, "omnivore", 4, "woof woof");
     }
     // - Override speak() to print "<name> says: Woof!"
     @Override
     public void speak(){
         System.out.println(name + "says: Woof!");
     }
-    
+
     //Equals override
-     @Override
+    @Override
     public boolean equals(Object o) {
         if (o instanceof Dog) {
             Dog other = (Dog) o;
@@ -84,7 +84,7 @@ public class Dog extends Mammal{
 }
 
 // TODO: Define a class Cat that extends Mammal
-public class Cat extends Mammal{
+    class Cat extends Mammal{
     // - Constructor takes name and passes name, true, "carnivore", 4, "Meow!" to super
     public Cat(String name){
         super(name, true, "carnivore", 4, "meow");
@@ -97,7 +97,7 @@ public class Cat extends Mammal{
 }
 
 // TODO: Define a final class Human that extends Mammal
-public final class Human extends Mammal{
+    final class Human extends Mammal{
     // - Constructor takes name and passes name, true, "omnivore", 2, "Hello!" to super
     public Human (String name){
         super (name, true, "omnivore", 2, "Words!!");
@@ -105,7 +105,7 @@ public final class Human extends Mammal{
 }
 
 // TODO: Define a class Reptile that extends Animal
-public class Reptile extends Animal{
+    class Reptile extends Animal{
     // - Add fields: boolean warmBlooded (set to false), int numLegs, String dietType, String sound
     private boolean warmBlooded = false;
     private int numLegs;
@@ -127,7 +127,7 @@ public class Reptile extends Animal{
 }
 
 //Adittional animal
-public class Fish extends Animal{
+    class Fish extends Animal{
     private String sound;
 
     public Fish (String name){
@@ -143,26 +143,26 @@ public class Fish extends Animal{
 
 // Main class to test
 // TODO: Define class AnimalKingdomTest with a main method
-public class AnimalKingdomTest{
+    class AnimalKingdomTest{
     public static void main(String [] args){
-    // - Create Animal a1 = new Dog("Buddy")
-    Animal a1 = new Dog ("Buddy");
-    // - Create Animal a2 = new Cat("Whiskers")
-    Animal a2 = new Cat ("Whiskers");
+        // - Create Animal a1 = new Dog("Buddy")
+        Animal a1 = new Dog ("Buddy");
+        // - Create Animal a2 = new Cat("Whiskers")
+        Animal a2 = new Cat ("Whiskers");
 // - Call speak() on both (demonstrating polymorphism)
-    a1.speak();
-    a2.speak();
+        a1.speak();
+        a2.speak();
 // - Print both using System.out.println
-    System.out.println(a1);
-    System.out.println(a2);
-    // - Use equals() to compare a1 to a new Dog("Buddy")
-    Animal newDog = new Dog ("Buddy");
-    System.out.println(a1.equals(newDog));
+        System.out.println(a1);
+        System.out.println(a2);
+        // - Use equals() to compare a1 to a new Dog("Buddy")
+        Animal newDog = new Dog ("Buddy");
+        System.out.println(a1.equals(newDog));
 
-    Dog newDog2 = new Dog("Buddy");
-    newDog2.speak();
-    newDog2.performTrick();
-}
+        Dog newDog2 = new Dog("Buddy");
+        newDog2.speak();
+        newDog2.performTrick();
+    }
 }
 
 
@@ -172,4 +172,3 @@ public class AnimalKingdomTest{
 //Error because Human class was creates as final.
 // 3. Override equals() in Dog or Cat to also check the type
 // 4. Add a method to Mammal called performTrick() and call it via downcasting
-
