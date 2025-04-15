@@ -10,6 +10,7 @@ class Product{
     protected double price;
 
     // - A private final int productId
+    //private because the id cannot be changed
     private final int productId;
 
     // - A public static int nextId to help generate unique IDs
@@ -66,6 +67,17 @@ class Product{
     }
 }
 
+class Coupon {
+    private final double discountRate;
+
+    public Coupon(double discountRate) {
+        this.discountRate = discountRate;
+    }
+
+    public double applyDiscount(Product product) {
+        return product.getPrice() * (1 - discountRate);
+    }
+}
 
 // TODO: Define a subclass Electronics that extends Product
 class Electronics extends Product{
@@ -83,6 +95,10 @@ class Electronics extends Product{
     @Override
     public String toString() {
         return "Product: " + name + "\nBrand: " + brand + "\nPrice: $ " + price + "\nHas Battery: " + hasBattery + "\n\n";
+    }
+    
+    public final String warrantyInfo(){
+        return "3-year warranty";
     }
 }
 
@@ -144,6 +160,13 @@ class SuperStoreTest{
         for (int i = 0; i < 3; i++){
             System.out.println(Product[i]);
         }
+
+        //Implementing Coupon
+        Coupon coupon = new Coupon(.15);
+        double priceDiscounted = coupon.applyDiscount(iphone);
+        System.out.println("Iphone with a discount:" + priceDiscounted);
+        System.out.println(iphone.warrantyInfo());
+
 
         // - Call equals() to compare two products with the same ID and name
         System.out.println(iphone.equals(iphone));
